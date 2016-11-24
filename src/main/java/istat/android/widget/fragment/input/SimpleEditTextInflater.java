@@ -1,25 +1,29 @@
 package istat.android.widget.fragment.input;
 
+
+import java.util.List;
+
+import istat.android.widget.datas.stucture.BasicNameValuePair;
 import istat.android.widget.datas.stucture.NameValueList;
 import istat.android.widget.R;
-import org.apache.http.message.BasicNameValuePair;
+
+
 import android.text.InputType;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.EditText;
 
-public class CheckboxEditTextInflater extends BasicInflater {
-	private int inputType = InputType.TYPE_CLASS_TEXT;
-	private boolean valueHint = false;
-	private String globalHint = "";
-
+public class SimpleEditTextInflater extends BasicInflater {
+	protected int inputType = InputType.TYPE_CLASS_TEXT;
+	private String globalHint="...";boolean autoFocus=false;
 	@Override
 	protected void onPerformInflation(View layout) {
-		// TODO Auto-generated method stub
+		
 		final EditText content = (EditText) layout.findViewById(R.id.content);
+		layout.findViewById(R.id.type).setVisibility(View.GONE);
 		content.setInputType(inputType);
-		content.setSelected(true);
+		if(autoFocus)
+		content.requestFocus();
 	}
 
 	public void setInputType(int inputType) {
@@ -29,9 +33,9 @@ public class CheckboxEditTextInflater extends BasicInflater {
 	@Override
 	protected void onGetDatas(NameValueList datas, View name,
 			View value) {
-		// TODO Auto-generated method stub
+		
 		String tmp=((EditText) value).getText().toString();
-		datas.add(new BasicNameValuePair(""+(((CheckBox)name).isChecked()),
+		datas.add(new BasicNameValuePair(tmp,
 				tmp));
 		
 	}
@@ -40,41 +44,40 @@ public class CheckboxEditTextInflater extends BasicInflater {
 	@Override
 	protected void onInflationComplete(View nameV, View valueV, String name,
 			String value) {
-		// TODO Auto-generated method stub
-		EditText edt = (EditText) valueV;
-		if (!TextUtils.isEmpty(globalHint))
-			edt.setHint(value);
-		if (valueHint)
-			edt.setHint(value);
-		else
-			edt.setText(value);
 		
-		valueHint = false;
+		EditText edt = (EditText) valueV;
+		if (!TextUtils.isEmpty(value))
+			edt.setHint(value);
+		else edt.setHint(globalHint);
+		if(name==null) return ;
+		edt.setText(name);
 	}
-
-	public void addItem(String name, String value, boolean hint) {
-		// TODO Auto-generated method stub
-		valueHint = hint;
-		super.addItem(name, value);
+	public void addItem(String value) {
+		
+		super.addItem(value, null);
 
 	}
-	public void addItem(String name, String value, String hint) {
-		// TODO Auto-generated method stub
-		globalHint=hint;
-		super.addItem(name, value);
-		globalHint=null;
+	public void addItem(String value, boolean hint) {
+		
+		super.addItem(value, null);
 
 	}
 
 	@Override
 	protected void onInitCompoment(View basView) {
-		// TODO Auto-generated method stub
+		
 		setInflationLayout(R.layout.include_cheker_inflation);
 	}
-
-	
 	public void setGlobalHint(String globalHint) {
+		if(globalHint!=null)
 		this.globalHint = globalHint;
 	}
-
+	public void setAutoFocusOnInflate(boolean autoFocus) {
+		this.autoFocus = autoFocus;
+	}
+	public void setData(List<String> datas){
+		for(String s:datas){
+			addItem(s);
+		}
+	}
 }

@@ -1,13 +1,12 @@
 package istat.android.widget.fragment.input;
 
 import istat.android.base.util.ToolKits;
+import istat.android.widget.datas.stucture.BasicNameValuePair;
 import istat.android.widget.datas.stucture.NameValueList;
 import istat.android.widget.R;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.http.message.BasicNameValuePair;
 
 import android.view.View;
 import android.view.ViewGroup;

@@ -1,14 +1,13 @@
 package istat.android.widget.fragment.input;
 
 import istat.android.base.util.ToolKits;
+import istat.android.widget.datas.stucture.BasicNameValuePair;
 import istat.android.widget.datas.stucture.NameValueList;
 import istat.android.widget.view.TouchMe;
 import istat.android.widget.R;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.http.message.BasicNameValuePair;
 
 import android.Manifest.permission;
 import android.content.Context;
@@ -128,7 +127,7 @@ public abstract class BasicInflater extends Fragment {
 				if (v.getId() == R.id.minus) {
 					int index=listInflation.indexOf(layout);
 					onClickOnRemoveItem(layout,index);
-					removeLayout(layout);	
+					removeLayout(layout);
 				}
 			}
 
@@ -265,7 +264,7 @@ public abstract class BasicInflater extends Fragment {
 
 	}
 	protected void onAddItem(int index){
-		
+
 	}
 	public void setMaxInflatable(int maxInflatable) {
 		this.maxInflatable = maxInflatable;
@@ -346,7 +345,7 @@ public abstract class BasicInflater extends Fragment {
 		}
 
 		/**
-		 * 
+		 *
 		 * @param type
 		 * @param restrictList
 		 * @return a int that represent type's Restriction limit from a

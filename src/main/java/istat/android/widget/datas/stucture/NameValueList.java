@@ -5,8 +5,6 @@ import istat.android.base.util.JSON;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -77,7 +75,7 @@ public class NameValueList extends ArrayList<BasicNameValuePair> implements
 	public JSONObject toJson() throws JSONException {
 		JSONObject json = new JSONObject();
 		JSONObject basejson = null;
-		for (NameValuePair pair : this) {
+		for (BasicNameValuePair pair : this) {
 			basejson = new JSONObject();
 			basejson.accumulate("name", pair.getName());
 			basejson.accumulate("value", pair.getValue());

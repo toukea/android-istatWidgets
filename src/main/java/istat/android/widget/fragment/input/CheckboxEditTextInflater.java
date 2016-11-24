@@ -1,15 +1,15 @@
 package istat.android.widget.fragment.input;
 
+import istat.android.widget.datas.stucture.BasicNameValuePair;
 import istat.android.widget.datas.stucture.NameValueList;
 import istat.android.widget.R;
-import org.apache.http.message.BasicNameValuePair;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-public class CheckboxTextInflater extends BasicInflater {
+public class CheckboxEditTextInflater extends BasicInflater {
 	private int inputType = InputType.TYPE_CLASS_TEXT;
 	private boolean valueHint = false;
 	private String globalHint = "";
