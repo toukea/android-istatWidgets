@@ -64,7 +64,7 @@ public class SimpleEditTextInflater extends BasicInflater {
 	}
 
 	@Override
-	protected void onInitCompoment(View basView) {
+	protected void onInitComponent(View basView) {
 		
 		setInflationLayout(R.layout.include_cheker_inflation);
 	}
@@ -75,8 +75,8 @@ public class SimpleEditTextInflater extends BasicInflater {
 	public void setAutoFocusOnInflate(boolean autoFocus) {
 		this.autoFocus = autoFocus;
 	}
-	public void setData(List<String> datas){
-		for(String s:datas){
+	public void setData(List<String> dataS){
+		for(String s:dataS){
 			addItem(s);
 		}
 	}

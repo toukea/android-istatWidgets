@@ -16,7 +16,7 @@ public class RadioTextViewInflater extends BasicInflater {
 	}
 
 	@Override
-	protected void onInitCompoment(View basView) {
+	protected void onInitComponent(View basView) {
 		// TODO Auto-generated method stub
 		setInflationLayout(R.layout.include_radio_text_inflation);
 	}
