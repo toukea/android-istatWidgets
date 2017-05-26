@@ -142,7 +142,7 @@ public abstract class BasicInflater extends Fragment {
 
 	}
 
-	protected abstract void onInitCompoment(View basView);
+	protected abstract void onInitComponent(View basView);
 
 	private void initCompoment() {
 		addView = (TouchMe) ((ViewGroup) baseComposite).findViewById(R.id.plus);
@@ -172,7 +172,7 @@ public abstract class BasicInflater extends Fragment {
 				}
 			}
 		});
-		onInitCompoment(baseComposite);
+		onInitComponent(baseComposite);
 	}
 
 	protected abstract void onPerformInflation(final View layout);
