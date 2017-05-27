@@ -1,4 +1,4 @@
-package istat.android.widget.util;
+package istat.android.widget.utils;
 
 import istat.android.widget.R;
 

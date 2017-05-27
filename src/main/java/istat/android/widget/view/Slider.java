@@ -1,6 +1,6 @@
 package istat.android.widget.view;
 
-import istat.android.widget.util.WidgetUtil;
+import istat.android.widget.utils.WidgetUtil;
 import istat.android.widget.R;
 import java.util.List;
 import java.util.Timer;
@@ -75,23 +75,23 @@ public class Slider extends View {
 			if (!AutoResizable) {
 
 				if (Pictx < -this.getWidth() || Pictx > this.getWidth()) {
-					istat.android.widget.util.WidgetUtil.drawimag(canvas,
+					istat.android.widget.utils.WidgetUtil.drawimag(canvas,
 							canvs, 0, 0, this.getWidth(), this.getHeight(), p);
 				} else {
 					if (POSITION == 2)
-						istat.android.widget.util.WidgetUtil.drawimag(canvas,
+						istat.android.widget.utils.WidgetUtil.drawimag(canvas,
 								canvs, Pictx + this.getWidth(), 0,
 								this.getWidth(), this.getHeight(), p);
 					else if (POSITION == 1)
-						istat.android.widget.util.WidgetUtil.drawimag(canvas,
+						istat.android.widget.utils.WidgetUtil.drawimag(canvas,
 								canvs, Pictx - this.getWidth(), 0,
 								this.getWidth(), this.getHeight(), p);
 					else
-						istat.android.widget.util.WidgetUtil.drawimag(canvas,
+						istat.android.widget.utils.WidgetUtil.drawimag(canvas,
 								canvs, 0, 0, this.getWidth(), this.getHeight(),
 								p);
 				}
-				istat.android.widget.util.WidgetUtil.drawimag(canvas, bckcanvs,
+				istat.android.widget.utils.WidgetUtil.drawimag(canvas, bckcanvs,
 						Pictx, 0, this.getWidth(), this.getHeight(), p);
 			} else {
 
@@ -112,13 +112,13 @@ public class Slider extends View {
 
 					if (canvs.getWidth() >= canvs.getHeight()) {
 
-						istat.android.widget.util.WidgetUtil.drawimag(canvas,
+						istat.android.widget.utils.WidgetUtil.drawimag(canvas,
 								canvs, 0, 0 + margingy, this.getWidth(),
 								(int) h, p);
 
 					} else {
 
-						istat.android.widget.util.WidgetUtil.drawimag(canvas,
+						istat.android.widget.utils.WidgetUtil.drawimag(canvas,
 								canvs, 0 + margingx, 0, (int) w,
 								this.getHeight(), p);
 					}
@@ -126,28 +126,28 @@ public class Slider extends View {
 				} else {
 					if (POSITION == 2) {
 						if (canvs.getWidth() >= canvs.getHeight()) {
-							istat.android.widget.util.WidgetUtil.drawimag(
+							istat.android.widget.utils.WidgetUtil.drawimag(
 									canvas, canvs, Pictx + this.getWidth(),
 									margingy, this.getWidth(), (int) h, p);
 						} else
-							istat.android.widget.util.WidgetUtil.drawimag(
+							istat.android.widget.utils.WidgetUtil.drawimag(
 									canvas, canvs, Pictx + this.getWidth() + 2
 											* margingx, 0, (int) w,
 									this.getHeight(), p);
 
 					} else if (POSITION == 1) {
 						if (canvs.getWidth() >= canvs.getHeight()) {
-							istat.android.widget.util.WidgetUtil.drawimag(
+							istat.android.widget.utils.WidgetUtil.drawimag(
 									canvas, canvs, Pictx - this.getWidth(),
 									margingy, this.getWidth(), (int) h, p);
 						} else
-							istat.android.widget.util.WidgetUtil.drawimag(
+							istat.android.widget.utils.WidgetUtil.drawimag(
 									canvas, canvs, Pictx - this.getWidth()
 											+ margingx, 0, (int) w,
 									this.getHeight(), p);
 
 					} else {
-						istat.android.widget.util.WidgetUtil.drawimag(canvas,
+						istat.android.widget.utils.WidgetUtil.drawimag(canvas,
 								canvs, 0, 0, this.getWidth(), this.getHeight(),
 								p);
 
@@ -165,11 +165,11 @@ public class Slider extends View {
 
 				if (bckcanvs.getWidth() >= bckcanvs.getHeight()) {
 
-					istat.android.widget.util.WidgetUtil.drawimag(canvas,
+					istat.android.widget.utils.WidgetUtil.drawimag(canvas,
 							bckcanvs, Pictx, margingy, this.getWidth(),
 							(int) h, p);
 				} else
-					istat.android.widget.util.WidgetUtil.drawimag(canvas,
+					istat.android.widget.utils.WidgetUtil.drawimag(canvas,
 							bckcanvs, margingx + Pictx, 0, this.getWidth() - 2
 									* margingx, this.getHeight(), p);
 				// -------------------------------------------------------------------------------------------------------
@@ -309,21 +309,21 @@ public class Slider extends View {
 
 				if (WidgetUtil.isaNumber(ImagePhathList.get(SlideLevel))) {
 					try {
-						canvs = istat.android.widget.util.WidgetUtil
+						canvs = istat.android.widget.utils.WidgetUtil
 								.imag(Integer.valueOf(ImagePhathList
 										.get(SlideLevel)), ctx);
 					} catch (Exception e) {
 					}
 				} else if (!isScaled) {
 					try {
-						canvs = istat.android.widget.util.WidgetUtil
+						canvs = istat.android.widget.utils.WidgetUtil
 								.getBitmapFromPath(ImagePhathList
 										.get(SlideLevel));
 					} catch (Exception e) {
 					}
 				} else {
 					try {
-						canvs = istat.android.widget.util.WidgetUtil.imag(
+						canvs = istat.android.widget.utils.WidgetUtil.imag(
 								ImagePhathList.get(SlideLevel), MyScale);
 					} catch (Exception e) {
 					}
@@ -359,21 +359,21 @@ public class Slider extends View {
 						if (WidgetUtil.isaNumber(ImagePhathList
 								.get(SlideLevel - 1))) {
 							try {
-								bckcanvs = istat.android.widget.util.WidgetUtil
+								bckcanvs = istat.android.widget.utils.WidgetUtil
 										.imag(Integer.valueOf(ImagePhathList
 												.get(SlideLevel - 1)), ctx);
 							} catch (Exception e) {
 							}
 						} else if (!isScaled)
 							try {
-								bckcanvs = istat.android.widget.util.WidgetUtil
+								bckcanvs = istat.android.widget.utils.WidgetUtil
 										.getBitmapFromPath(ImagePhathList
 												.get(SlideLevel - 1));
 							} catch (Exception e) {
 							}
 						else
 							try {
-								bckcanvs = istat.android.widget.util.WidgetUtil
+								bckcanvs = istat.android.widget.utils.WidgetUtil
 										.imag(ImagePhathList
 												.get(SlideLevel - 1), MyScale);
 							} catch (Exception e) {
@@ -383,14 +383,14 @@ public class Slider extends View {
 
 						if (!isScaled)
 							try {
-								bckcanvs = istat.android.widget.util.WidgetUtil
+								bckcanvs = istat.android.widget.utils.WidgetUtil
 										.getBitmapFromPath(ImagePhathList
 												.get(ImagePhathList.size() - 1));
 							} catch (Exception e) {
 							}
 						else
 							try {
-								bckcanvs = istat.android.widget.util.WidgetUtil
+								bckcanvs = istat.android.widget.utils.WidgetUtil
 										.imag(ImagePhathList.get(ImagePhathList
 												.size() - 1), MyScale);
 							} catch (Exception e) {

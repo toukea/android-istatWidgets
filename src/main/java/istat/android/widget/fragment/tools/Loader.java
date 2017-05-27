@@ -1,6 +1,6 @@
 package istat.android.widget.fragment.tools;
 
-import istat.android.base.image.ImageLoader;
+import istat.android.base.utils.ImageLoader;
 import istat.android.widget.R;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -30,7 +30,7 @@ View rootView;
 		getLoadImageView().setImageResource(image);
 	}
 	public void displayLoadImage(String imageURL){
-		new ImageLoader(getActivity()).DisplayImage(imageURL, getLoadImageView());
+		new ImageLoader(getActivity()).displayImage(imageURL, getLoadImageView());
 		getLoadImageView().setVisibility(View.VISIBLE);
 	}
 	public void  setLoadImageVisible(boolean visible){

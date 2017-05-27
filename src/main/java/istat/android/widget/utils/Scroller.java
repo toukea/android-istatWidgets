@@ -1,7 +1,6 @@
-package istat.android.widget.util;
+package istat.android.widget.utils;
 
 import android.os.Handler;
-import android.util.Log;
 import android.widget.ScrollView;
 
 public class Scroller implements Runnable {

@@ -1,6 +1,6 @@
 package istat.android.widget.fragment.input;
 
-import istat.android.base.util.ToolKits;
+import istat.android.base.tools.ToolKits;
 import istat.android.widget.datas.stucture.BasicNameValuePair;
 import istat.android.widget.datas.stucture.NameValueList;
 import istat.android.widget.R;

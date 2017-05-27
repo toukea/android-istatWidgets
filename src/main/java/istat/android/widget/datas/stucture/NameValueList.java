@@ -1,6 +1,6 @@
 package istat.android.widget.datas.stucture;
 
-import istat.android.base.util.JSON;
+import istat.android.base.tools.JSON;
 
 import java.util.ArrayList;
 import java.util.List;

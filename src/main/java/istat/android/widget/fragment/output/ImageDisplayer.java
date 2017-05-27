@@ -1,14 +1,14 @@
 package istat.android.widget.fragment.output;
 
-import istat.android.base.image.ImageLoader;
-import istat.android.base.sys.AsyncAction;
-import istat.android.base.util.ToolKits;
+import istat.android.base.utils.ImageLoader;
+import istat.android.base.tools.ToolKits;
 import istat.android.widget.R;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.v4.app.Fragment;
@@ -121,7 +121,7 @@ public class ImageDisplayer extends Fragment {
         return this;
     }
 
-    private class LoadAction extends AsyncAction {
+    private class LoadAction extends AsyncTask {
         String url;
         Bitmap image;
 
@@ -130,13 +130,14 @@ public class ImageDisplayer extends Fragment {
         }
 
         @Override
-        public void onActionPreExecute() {
+        public void onPreExecute() {
             // TODO Auto-generated method stub
             imageView.setImageBitmap(onLoadImage);
         }
 
         @Override
-        public void onExecute() {
+        protected Object doInBackground(Object[] params) {
+
             // TODO Auto-generated method stub
             // image=ImageBitmap.getBitmapFromURL(url);
             if (ToolKits.WordFormat.isNumber(url))
@@ -144,17 +145,17 @@ public class ImageDisplayer extends Fragment {
                         Integer.valueOf(url));
             else
                 image = ImageLoader.getBitmap(url, getActivity(), imageQuality);
+
+            return null;
         }
 
         @Override
-        public void onActionProgress(Message msg) {
-            // TODO Auto-generated method stub
-
+        protected void onProgressUpdate(Object[] values) {
+            super.onProgressUpdate(values);
         }
 
         @Override
-        public void onActionComplete() {
-            // TODO Auto-generated method stub
+        protected void onPostExecute(Object o) {
             setLoaderVisible(false);
 
             if (image != null) {
@@ -167,13 +168,6 @@ public class ImageDisplayer extends Fragment {
                 imageView.setImageBitmap(onEchecImage);
 
             onCompleteImageLoad(image, url);
-
-        }
-
-        @Override
-        public void onStop() {
-            // TODO Auto-generated method stub
-
         }
 
     }
