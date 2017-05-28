@@ -13,7 +13,7 @@ public class Scroller implements Runnable {
 	private Handler handler = new Handler();
 	private ScrollView scrollView;
 	boolean run = true;
-	ScrollCalbak mScrollCallbak;
+	ScrollCallback mScrollCallback;
 
 	private Scroller(Scroller turner) {
 		this.scrollView = turner.scrollView;
@@ -46,7 +46,7 @@ public class Scroller implements Runnable {
 		}
 		run = true;
 		timeCount = 0;
-		handler.post(new Scroller(this).setScrollCallbak(mScrollCallbak));
+		handler.post(new Scroller(this).setScrollCallbak(mScrollCallback));
 
 	}
 
@@ -81,13 +81,13 @@ public class Scroller implements Runnable {
 			xPosition = Math.abs(velocity) + xPosition;
 			if (run)
 				handler.postDelayed(this, configuration.refreshTime);
-			if (mScrollCallbak != null)
-				mScrollCallbak.onScrollProcess(scrollView);
-			// Log.e("RUUN", ""+mScrollCallbak);
+			if (mScrollCallback != null)
+				mScrollCallback.onScrollProcess(scrollView);
+			// Log.e("RUUN", ""+mScrollCallback);
 		} else {
 			run = false;
-			if (mScrollCallbak != null)
-				mScrollCallbak.onScrollComplete(scrollView);
+			if (mScrollCallback != null)
+				mScrollCallback.onScrollComplete(scrollView);
 		}
 
 	}
@@ -96,9 +96,9 @@ public class Scroller implements Runnable {
 		this.configuration = configuration;
 	}
 
-	public Scroller setScrollCallbak(ScrollCalbak mScrollCallbak) {
-		this.mScrollCallbak = mScrollCallbak;
-		// Log.e("SETCALBACK", ""+mScrollCallbak);
+	public Scroller setScrollCallbak(ScrollCallback mScrollCallbak) {
+		this.mScrollCallback = mScrollCallbak;
+		// Log.e("SETCALBACK", ""+mScrollCallback);
 		return this;
 
 	}
@@ -138,7 +138,7 @@ public class Scroller implements Runnable {
 		}
 	}
 
-	public static interface ScrollCalbak {
+	public static interface ScrollCallback {
 		public abstract void onScrollComplete(ScrollView scrollView);
 
 		public abstract void onScrollProcess(ScrollView scrollView);
