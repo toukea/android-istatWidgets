@@ -29,7 +29,6 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_gravity="center"
-        
         android:background="@android:drawable/ic_menu_close_clear_cancel" />
 
 </LinearLayout>

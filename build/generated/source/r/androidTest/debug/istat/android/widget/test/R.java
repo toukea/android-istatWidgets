@@ -51,8 +51,8 @@ public final class R {
     public static final class id {
         public static final int base_inflater=0x7f060000;
         public static final int content=0x7f060006;
-        public static final int headerLayout=0x7f060009;
-        public static final int headertext=0x7f06000a;
+        public static final int headerLayout=0x7f060008;
+        public static final int headertext=0x7f060009;
         public static final int imageView=0x7f06000c;
         public static final int inflate_base_composite=0x7f060004;
         public static final int loadImageView=0x7f060002;
@@ -60,10 +60,10 @@ public final class R {
         public static final int loadTextView=0x7f060003;
         public static final int loader=0x7f06000d;
         public static final int minus=0x7f060007;
-        public static final int plus=0x7f06000b;
+        public static final int plus=0x7f06000a;
         public static final int textView1=0x7f06000e;
         public static final int type=0x7f060005;
-        public static final int view1=0x7f060008;
+        public static final int view1=0x7f06000b;
     }
     public static final class layout {
         public static final int base_inflater=0x7f030000;

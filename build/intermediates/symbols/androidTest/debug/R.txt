@@ -36,8 +36,8 @@ int drawable plus 0x7f020022
 int drawable translucent_bottom 0x7f020023
 int id base_inflater 0x7f060000
 int id content 0x7f060006
-int id headerLayout 0x7f060009
-int id headertext 0x7f06000a
+int id headerLayout 0x7f060008
+int id headertext 0x7f060009
 int id imageView 0x7f06000c
 int id inflate_base_composite 0x7f060004
 int id loadImageView 0x7f060002
@@ -45,10 +45,10 @@ int id loadProgress 0x7f060001
 int id loadTextView 0x7f060003
 int id loader 0x7f06000d
 int id minus 0x7f060007
-int id plus 0x7f06000b
+int id plus 0x7f06000a
 int id textView1 0x7f06000e
 int id type 0x7f060005
-int id view1 0x7f060008
+int id view1 0x7f06000b
 int layout base_inflater 0x7f030000
 int layout fragment_loader_layout 0x7f030001
 int layout include_cheker_inflation 0x7f030002

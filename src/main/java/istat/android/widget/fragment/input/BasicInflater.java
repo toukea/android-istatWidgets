@@ -26,7 +26,6 @@ import android.widget.TextView;
 import android.widget.FrameLayout.LayoutParams;
 
 public abstract class BasicInflater extends Fragment {
-    // private Bundle bund;
     protected ViewGroup baseComposite, parentView;
     protected LinearLayout base;
     protected LayoutInflater inflater;
@@ -39,12 +38,11 @@ public abstract class BasicInflater extends Fragment {
     protected int minInflatable = 0;
     private int inflationCount = 0;
     private Vibrator vbr;
-    private List<Restriction> restriction = new ArrayList<Restriction>();
-    private int icone_misus = android.R.drawable.ic_menu_close_clear_cancel;
-    private int icone_plus = android.R.drawable.ic_menu_add;
+    private List<Restriction> restriction = new ArrayList();
+    private int iconMinus = android.R.drawable.ic_menu_close_clear_cancel;
+    private int iconPlus = android.R.drawable.ic_menu_add;
     protected int INFLATION_ROW = 0;
-    List<View> listInflation = new ArrayList<View>();
-    // HashMap<View, View> listInflationDetails = new HashMap<View, View>();
+    List<View> listInflation = new ArrayList();
     Bundle savedInstanceState;
 
     protected List<View> getListInflation() {
@@ -105,7 +103,7 @@ public abstract class BasicInflater extends Fragment {
         }
 
         if (data.size() >= maxInflatable) {
-            addView.setBackgroundResource(icone_misus);
+            addView.setBackgroundResource(iconMinus);
         }
 
         return data;
@@ -127,8 +125,7 @@ public abstract class BasicInflater extends Fragment {
     }
 
     public List<String> getDataNames() {
-        List<String> data = new ArrayList<String>();
-
+        List<String> data = new ArrayList();
         for (View baseView : listInflation) {
             ViewGroup tmpGroup = (ViewGroup) baseView;
             data.add(((Button) tmpGroup.findViewById(R.id.type)).getText()
@@ -149,8 +146,6 @@ public abstract class BasicInflater extends Fragment {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
-
                 if (v.getId() == R.id.minus) {
                     int index = listInflation.indexOf(layout);
                     onClickOnRemoveItem(layout, index);
@@ -159,32 +154,33 @@ public abstract class BasicInflater extends Fragment {
             }
 
         };
-        minus.setOnClickListener(onClick);
+        if (minus != null) {
+            minus.setOnClickListener(onClick);
+        }
         // -------------------------------
         content.setSelected(true);
         // --------------------------------
         onPerformInflation(layout);
         if (inflationCount < minInflatable) {
-            minus.setVisibility(TouchMe.INVISIBLE);
+            if (minus != null) {
+                minus.setVisibility(TouchMe.INVISIBLE);
+            }
         }
-
     }
 
     protected abstract void onInitComponent(View basView);
 
     private void initComponent() {
-        addView = (TouchMe) ((ViewGroup) baseComposite).findViewById(R.id.plus);
+        addView = (TouchMe) (baseComposite).findViewById(R.id.plus);
         vbr = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
-        headerText = (TextView) ((ViewGroup) baseComposite)
+        headerText = (TextView) (baseComposite)
                 .findViewById(R.id.headertext);
         addView.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
-
                 if (inflationCount >= maxInflatable - 1) {
-                    addView.setBackgroundResource(icone_misus);
+                    addView.setBackgroundResource(iconMinus);
                     addView.setVisibility(View.INVISIBLE);
                 }
                 if (inflationCount >= maxInflatable) {
@@ -205,19 +201,6 @@ public abstract class BasicInflater extends Fragment {
 
     protected abstract void onPerformInflation(final View layout);
 
-	/*
-     * private void removeLayout(View layout) { ((ViewGroup)
-	 * base).removeView(layout);
-	 * 
-	 * inflationCount--; listInflation.remove(layout); if (inflationCount <
-	 * maxInflatable) { if (maxInflatable != minInflatable) ;
-	 * addView.setVisibility(View.VISIBLE);
-	 * addView.setBackgroundResource(icone_plus);//
-	 * plus.setVisibility(TouchMe.VISIBLE); }
-	 * 
-	 * }
-	 */
-
     protected void addItem() {
         addItem(null, null);
     }
@@ -226,7 +209,7 @@ public abstract class BasicInflater extends Fragment {
         if (base != null && inflater != null) {
             View layout = inflater.inflate(INFLATION_ROW, null/* parentView */);
             // ((LinearLayout) base).addView(layout);
-            ((LinearLayout) base).addView(layout);
+            base.addView(layout);
             listInflation.add(layout);
             initInflateContent(layout);
             inflationCount++;
@@ -237,16 +220,6 @@ public abstract class BasicInflater extends Fragment {
             onAddItem(inflationCount);
         }
     }
-
-	/*
-     * protected void addItem() { if (base != null && inflater != null) {
-	 * 
-	 * View layout = inflater.inflate(INFLATION_ROW, parentView); //
-	 * ((LinearLayout) base).addView(layout); ((LinearLayout)
-	 * base).addView(layout, new LayoutParams( LayoutParams.MATCH_PARENT,
-	 * LayoutParams.WRAP_CONTENT)); listInflation.add(layout);
-	 * initInflateContent(layout); inflationCount++; } }
-	 */
 
     protected abstract void onInflationComplete(View nameV, View valueV,
                                                 String name, String value);
@@ -267,12 +240,12 @@ public abstract class BasicInflater extends Fragment {
             View layout = listInflation.get(position);
             inflationCount--;
             listInflation.remove(layout);
-            ((ViewGroup) base).removeView(layout);
+            (base).removeView(layout);
             if (inflationCount < maxInflatable) {
                 if (maxInflatable != minInflatable)
                     ;
                 addView.setVisibility(View.VISIBLE);
-                addView.setBackgroundResource(icone_plus);// plus.setVisibility(TouchMe.VISIBLE);
+                addView.setBackgroundResource(iconPlus);
             }
             onRemoveItem(position);
 
@@ -356,8 +329,8 @@ public abstract class BasicInflater extends Fragment {
     }
 
     public void iconeConfig(int plus, int minus) {
-        icone_misus = minus;
-        icone_plus = plus;
+        iconMinus = minus;
+        iconPlus = plus;
     }
 
     private void showKeyboard(View view) {
@@ -395,6 +368,12 @@ public abstract class BasicInflater extends Fragment {
 
     public void setInputEnable(boolean value) {
         inputEnable = value;
+        for (View view : getListInflation()) {
+            View v = view.findViewById(R.id.type);
+            if (v != null) {
+                v.setEnabled(value);
+            }
+        }
     }
 
     public boolean isInputEnable() {
@@ -423,7 +402,6 @@ public abstract class BasicInflater extends Fragment {
 
     @Override
     public View getView() {
-        // TODO Auto-generated method stub
         return baseComposite != null ? baseComposite : super.getView();
     }
 

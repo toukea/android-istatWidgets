@@ -23,7 +23,7 @@ public class SimpleSpinnerInflater extends BasicInflater {
 		
 		final Spinner choiceSpinner = (Spinner) layout
 				.findViewById(R.id.content);
-		choiceSpinner.setAdapter(new ArrayAdapter<String>(mContext,
+		choiceSpinner.setAdapter(new ArrayAdapter(mContext,
 				spinnerLayout, choices));
 
 	}
