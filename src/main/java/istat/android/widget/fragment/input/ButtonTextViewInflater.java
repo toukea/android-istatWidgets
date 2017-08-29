@@ -1,7 +1,7 @@
 package istat.android.widget.fragment.input;
 
-import istat.android.widget.datas.stucture.BasicNameValuePair;
-import istat.android.widget.datas.stucture.NameValueList;
+import istat.android.widget.datas.BasicNameValuePair;
+import istat.android.widget.datas.NameValueList;
 import istat.android.widget.R;
 
 import java.util.List;
@@ -61,8 +61,8 @@ public class ButtonTextViewInflater extends BasicInflater {
     }
 
     @Override
-    protected void onGetDatas(NameValueList datas, View name,
-                              View value) {
+    protected void onGetData(NameValueList datas, View name,
+                             View value) {
         // TODO Auto-generated method stub
         datas.add(new BasicNameValuePair(((Button) name).getText().toString(),
                 ((EditText) value).getText().toString()));

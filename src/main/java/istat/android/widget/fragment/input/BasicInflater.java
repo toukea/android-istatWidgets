@@ -1,8 +1,8 @@
 package istat.android.widget.fragment.input;
 
 import istat.android.base.tools.ToolKits;
-import istat.android.widget.datas.stucture.BasicNameValuePair;
-import istat.android.widget.datas.stucture.NameValueList;
+import istat.android.widget.datas.BasicNameValuePair;
+import istat.android.widget.datas.NameValueList;
 import istat.android.widget.view.TouchMe;
 import istat.android.widget.R;
 
@@ -95,12 +95,12 @@ public abstract class BasicInflater extends Fragment {
         return baseComposite;
     }
 
-    public NameValueList getDatas() {
+    public NameValueList getData() {
         NameValueList data = new NameValueList();
 
         for (View baseView : listInflation) {
             ViewGroup tmpGroup = (ViewGroup) baseView;
-            onGetDatas(data, tmpGroup.findViewById(R.id.type),
+            onGetData(data, tmpGroup.findViewById(R.id.type),
                     tmpGroup.findViewById(R.id.content));
         }
 
@@ -111,8 +111,8 @@ public abstract class BasicInflater extends Fragment {
         return data;
     }
 
-    protected abstract void onGetDatas(NameValueList datas, View name,
-                                       View value);
+    protected abstract void onGetData(NameValueList datas, View name,
+                                      View value);
 
     public List<String> getDataValues() {
         List<String> data = new ArrayList<String>();

@@ -1,8 +1,8 @@
 package istat.android.widget.fragment.input;
 
 import istat.android.base.tools.ToolKits;
-import istat.android.widget.datas.stucture.BasicNameValuePair;
-import istat.android.widget.datas.stucture.NameValueList;
+import istat.android.widget.datas.BasicNameValuePair;
+import istat.android.widget.datas.NameValueList;
 import istat.android.widget.R;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ public class SimpleSpinnerInflater extends BasicInflater {
 
 	@Override
 	protected void onPerformInflation(View layout) {
-		// TODO Auto-generated method stub
+		
 		final Spinner choiceSpinner = (Spinner) layout
 				.findViewById(R.id.content);
 		choiceSpinner.setAdapter(new ArrayAdapter<String>(mContext,
@@ -32,8 +32,8 @@ public class SimpleSpinnerInflater extends BasicInflater {
 	}
 
 	@Override
-	protected void onGetDatas(NameValueList datas, View name, View value) {
-		// TODO Auto-generated method stub
+	protected void onGetData(NameValueList datas, View name, View value) {
+		
 		String tmp = ((EditText) value).getText().toString();
 		datas.add(new BasicNameValuePair(tmp, tmp));
 
@@ -42,17 +42,17 @@ public class SimpleSpinnerInflater extends BasicInflater {
 	@Override
 	protected void onInflationComplete(View nameV, View valueV, String name,
 			String value) {
-		// TODO Auto-generated method stub
+		
 		((Spinner)valueV).setSelection(ToolKits.Word.parseInt(value));
 	}
 	public void addItem(int position) {
-		// TODO Auto-generated method stub
+		
 		super.addItem(null, position+"");
 	}
 
 	@Override
 	protected void onInitComponent(View basView) {
-		// TODO Auto-generated method stub
+		
 		setInflationLayout(R.layout.include_spinner_inflation);
 	}
 

@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/home/istat/Devs/AndroidStudio/Devup/QcmMaker/android-istatWidgets/build/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/ic_action_deflate.png",
+        "source": "/home/istat/Devs/AndroidStudio/Devup/QcmMaker/android-istatWidgets/build/intermediates/bundles/debug/res/drawable-mdpi-v4/ic_action_deflate.png"
+    },
+    {
+        "merged": "/home/istat/Devs/AndroidStudio/Devup/QcmMaker/android-istatWidgets/build/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/ic_action_cancel.png",
+        "source": "/home/istat/Devs/AndroidStudio/Devup/QcmMaker/android-istatWidgets/build/intermediates/bundles/debug/res/drawable-mdpi-v4/ic_action_cancel.png"
+    },
+    {
+        "merged": "/home/istat/Devs/AndroidStudio/Devup/QcmMaker/android-istatWidgets/build/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/ic_action_more.png",
+        "source": "/home/istat/Devs/AndroidStudio/Devup/QcmMaker/android-istatWidgets/build/intermediates/bundles/debug/res/drawable-mdpi-v4/ic_action_more.png"
+    },
+    {
+        "merged": "/home/istat/Devs/AndroidStudio/Devup/QcmMaker/android-istatWidgets/build/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/ic_launcher.png",
+        "source": "/home/istat/Devs/AndroidStudio/Devup/QcmMaker/android-istatWidgets/build/intermediates/bundles/debug/res/drawable-mdpi-v4/ic_launcher.png"
+    },
+    {
+        "merged": "/home/istat/Devs/AndroidStudio/Devup/QcmMaker/android-istatWidgets/build/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/ic_action_inflate.png",
+        "source": "/home/istat/Devs/AndroidStudio/Devup/QcmMaker/android-istatWidgets/build/intermediates/bundles/debug/res/drawable-mdpi-v4/ic_action_inflate.png"
+    }
+]
