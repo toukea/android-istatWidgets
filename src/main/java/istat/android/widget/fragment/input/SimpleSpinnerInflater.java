@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class SimpleSpinnerInflater extends BasicInflater {
     protected String[] choices = new String[]{"..."};
@@ -35,9 +36,8 @@ public class SimpleSpinnerInflater extends BasicInflater {
     @Override
     protected void onGetData(NameValueList data, View name, View value) {
         Spinner spinner = (Spinner) value;
-        String tmp = ((EditText) value).getText().toString();
+        String tmp = spinner.getSelectedItem().toString();
         data.add(new BasicNameValuePair(tmp, tmp));
-
     }
 
     @Override

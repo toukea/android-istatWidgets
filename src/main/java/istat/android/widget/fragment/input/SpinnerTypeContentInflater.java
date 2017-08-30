@@ -3,6 +3,8 @@ package istat.android.widget.fragment.input;
 import android.view.ViewGroup.LayoutParams;
 
 import istat.android.widget.R;
+import istat.android.widget.datas.BasicNameValuePair;
+import istat.android.widget.datas.NameValueList;
 import istat.android.widget.view.TouchMe;
 
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class SpinnerTypeContentInflater extends SimpleSpinnerInflater {
     private List<String[]> subChoices = new ArrayList<String[]>();
@@ -26,7 +29,7 @@ public class SpinnerTypeContentInflater extends SimpleSpinnerInflater {
         final Button type = (Button) layout.findViewById(R.id.type);
         final Spinner content = (Spinner) layout.findViewById(R.id.content);
         TouchMe minus = (TouchMe) layout.findViewById(R.id.minus);
-        OnClickListener oncl = new OnClickListener() {
+        OnClickListener onClickListener = new OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -37,11 +40,11 @@ public class SpinnerTypeContentInflater extends SimpleSpinnerInflater {
             }
 
         };
-        type.setOnClickListener(oncl);
+        type.setOnClickListener(onClickListener);
         content.setSelected(true);
         type.setText(getRestrictedChoice()[0]);
         if (0 < subChoices.size()) {
-            content.setAdapter(new ArrayAdapter<String>(getActivity(),
+            content.setAdapter(new ArrayAdapter(getActivity(),
                     spinnerLayout, subChoices.get(0)));
         }
 
@@ -58,6 +61,14 @@ public class SpinnerTypeContentInflater extends SimpleSpinnerInflater {
             type.setLayoutParams(params2);
         }
 
+    }
+
+    @Override
+    protected void onGetData(NameValueList data, View name, View value) {
+        TextView button = (TextView) name;
+        Spinner spinner = (Spinner) value;
+        String tmp = spinner.getSelectedItem().toString();
+        data.add(new BasicNameValuePair(button.getText().toString(), tmp));
     }
 
     @Override
@@ -115,7 +126,6 @@ public class SpinnerTypeContentInflater extends SimpleSpinnerInflater {
 
     @Override
     protected void onInitComponent(View basView) {
-        // TODO Auto-generated method stub
         setInflationLayout(R.layout.include_type_spinner_inflation);
     }
 
