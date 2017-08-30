@@ -67,21 +67,24 @@ public class SpinnerTypeContentInflater extends SimpleSpinnerInflater {
         Button button = (Button) nameV;
         Spinner spinner = (Spinner) valueV;
         button.setText(name);
-        String[] current_choice = subChoices.get(indexOfInArray(choices, name));
-        spinner.setAdapter(new ArrayAdapter<String>(getActivity(),
-                spinnerLayout, current_choice));
-        spinner.setSelection(indexOfInArray(current_choice, value));
+        int index = indexOfInArray(choices, name);
+        if (index > 0) {
+            String[] current_choice = subChoices.get(index);
+            spinner.setAdapter(new ArrayAdapter(getActivity(),
+                    spinnerLayout, current_choice));
+            spinner.setSelection(indexOfInArray(current_choice, value));
+        }
     }
 
     private int indexOfInArray(String[] array, String choiceString) {
         int index = 0;
         for (CharSequence string : array) {
             if (string.toString().equals(choiceString)) {
-                break;
+                return index;
             }
             index++;
         }
-        return index;
+        return -1;
     }
 
     private void showTypeChooser(final Button type, final Spinner content) {

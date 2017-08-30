@@ -25,14 +25,14 @@ public class ButtonTextViewInflater extends BasicInflater {
 
     @Override
     protected void onPerformInflation(View layout) {
-        // TODO Auto-generated method stub
+        
         final Button type = (Button) layout.findViewById(R.id.type);
         final EditText content = (EditText) layout.findViewById(R.id.content);
         OnClickListener oncl = new OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
+                
                 if (v.getId() == R.id.type) {
                     showTypeChooser(type, content);
                 }
@@ -63,7 +63,7 @@ public class ButtonTextViewInflater extends BasicInflater {
     @Override
     protected void onGetData(NameValueList datas, View name,
                              View value) {
-        // TODO Auto-generated method stub
+        
         datas.add(new BasicNameValuePair(((Button) name).getText().toString(),
                 ((EditText) value).getText().toString()));
 
@@ -76,7 +76,7 @@ public class ButtonTextViewInflater extends BasicInflater {
     @Override
     protected void onInflationComplete(View nameV, View valueV, String name,
                                        String value) {
-        // TODO Auto-generated method stub
+        
         Button btn = (Button) nameV;
         EditText edt = (EditText) valueV;
         btn.setText(name);
@@ -91,14 +91,14 @@ public class ButtonTextViewInflater extends BasicInflater {
     }
 
     public void addItem(String name, String value, boolean hint) {
-        // TODO Auto-generated method stub
+        
         valueHint = hint;
         super.addItem(name, value);
 
     }
 
     public void addItem(String name, String value, String hint) {
-        // TODO Auto-generated method stub
+        
         globalHint = hint;
         super.addItem(name, value);
         globalHint = null;
@@ -107,7 +107,7 @@ public class ButtonTextViewInflater extends BasicInflater {
 
     @Override
     protected void onInitComponent(View basView) {
-        // TODO Auto-generated method stub
+        
         setInflationLayout(R.layout.include_inflation);
     }
 

@@ -7,8 +7,8 @@ import android.os.Parcelable;
  * Created by istat on 24/11/16.
  */
 
-public class BasicNameValuePair implements Parcelable{
-    String value, name;
+public class BasicNameValuePair implements Parcelable {
+    public String value, name;
 
     public BasicNameValuePair(String s, String s1) {
         this.name = s;
