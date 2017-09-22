@@ -19,5 +19,6 @@ android {
 dependencies {
     compile 'com.android.support:support-v4:24.2.1'
 //    compile files('libs/istatbase.jar')
-    compile project(path: ':android-istat-tools')
+//    compile project(path: ':android-istat-tools')
+    compile 'istat.android.base:istat-tools:1.0.0'
 }
