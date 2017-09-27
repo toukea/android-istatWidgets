@@ -8,10 +8,11 @@ import android.text.InputType;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.Checkable;
 import android.widget.TextView;
 import android.widget.TextView;
 
-public class CheckBoxTextViewInflater extends BasicInflater {
+public class CheckableTextViewInflater extends BasicInflater {
     private int inputType = InputType.TYPE_CLASS_TEXT;
     private boolean valueHint = false;
     private String globalHint = "";
@@ -46,6 +47,8 @@ public class CheckBoxTextViewInflater extends BasicInflater {
         } else {
             textView.setText(value);
         }
+        Checkable checkable = (Checkable) nameV;
+        checkable.setChecked(Boolean.valueOf(name));
         valueHint = false;
     }
 
