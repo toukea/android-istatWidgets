@@ -46,7 +46,7 @@ public class Slider extends View {
 		addListener();
 		ctx = context;
 		init();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Slider(Context context, AttributeSet attrs) {
@@ -54,7 +54,7 @@ public class Slider extends View {
 		addListener();
 		ctx = context;
 		init();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Slider(Context context) {
@@ -62,13 +62,13 @@ public class Slider extends View {
 		addListener();
 		ctx = context;
 		// init();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	// @SuppressLint("DrawAllocation")
 	@Override
 	protected void onDraw(Canvas canvas) {
-		// TODO Auto-generated method stub
+
 		// super.onDraw(canvas);
 		if (canvs != null & bckcanvs != null) {
 

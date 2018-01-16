@@ -23,7 +23,7 @@ public class SimpleTableStructure extends Fragment {
 
 //	@Override
 //	public void onViewCreated(View view, Bundle savedInstanceState) {
-//		// TODO Auto-generated method stub
+//
 //		super.onViewCreated(view, savedInstanceState);
 //		FragmentTransaction t=getFragmentManager().beginTransaction();
 //		for(String s:rowTitles){

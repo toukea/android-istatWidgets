@@ -46,7 +46,10 @@ public class Scroller implements Runnable {
         }
         run = true;
         timeCount = 0;
-        handler.post(new Scroller(this).setScrollCallbak(mScrollCallback));
+        if (handler != null) {
+            handler.removeCallbacks(null);
+        }
+        handler.post(new Scroller(this).setScrollCallback(mScrollCallback));
 
     }
 
@@ -96,7 +99,7 @@ public class Scroller implements Runnable {
         this.configuration = configuration;
     }
 
-    public Scroller setScrollCallbak(ScrollCallback mScrollCallbak) {
+    public Scroller setScrollCallback(ScrollCallback mScrollCallbak) {
         this.mScrollCallback = mScrollCallbak;
         // Log.e("SETCALBACK", ""+mScrollCallback);
         return this;

@@ -43,12 +43,12 @@ public class NameValueTable extends ArrayList<NameValueList> implements Parcelab
 	}
 	@Override
 	public int describeContents() {
-		// TODO Auto-generated method stub
+
 		return 0;
 	}
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
-		// TODO Auto-generated method stub
+
 		dest.writeString(toString());
 	}
 	public static final Parcelable.Creator<NameValueTable> CREATOR = new Parcelable.Creator<NameValueTable>() {
@@ -60,7 +60,7 @@ public class NameValueTable extends ArrayList<NameValueList> implements Parcelab
 
 		@Override
 		public NameValueTable[] newArray(int size) {
-			// TODO Auto-generated method stub
+
 			return new NameValueTable[size];
 		}
 	

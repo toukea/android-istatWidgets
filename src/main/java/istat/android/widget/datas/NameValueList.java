@@ -95,13 +95,13 @@ public class NameValueList extends ArrayList<BasicNameValuePair> implements
 
     @Override
     public int describeContents() {
-        // TODO Auto-generated method stub
+
         return 0;
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        // TODO Auto-generated method stub
+
         dest.writeString(toString());
     }
 
@@ -117,7 +117,7 @@ public class NameValueList extends ArrayList<BasicNameValuePair> implements
 
         @Override
         public NameValueList[] newArray(int size) {
-            // TODO Auto-generated method stub
+
             return new NameValueList[size];
         }
 

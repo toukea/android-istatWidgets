@@ -23,7 +23,7 @@ public ImageTouchMe(Context context) {
 	addListener();
 	ctx=context;
 	init();
-	// TODO Auto-generated constructor stub
+	
 }
 	public ImageTouchMe(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
@@ -31,19 +31,19 @@ public ImageTouchMe(Context context) {
 		addListener();
 		ctx=context;
 		init();
-		// TODO Auto-generated constructor stub
+		
 	}
 	public ImageTouchMe(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		addListener();
 		ctx=context;
 		init();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	@Override
 	protected void onDraw(Canvas canvas) {
-		// TODO Auto-generated method stub
+
 		super.onDraw(canvas);
 		if(haveNumber)WidgetUtil.drawimag(canvas, WidgetUtil.imag(Number, ctx),ImageTouchMe.this.getWidth()-24, 4,20, 20, new Paint());
 		

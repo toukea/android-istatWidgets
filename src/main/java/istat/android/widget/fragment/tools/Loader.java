@@ -16,7 +16,7 @@ View rootView;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		rootView=(ViewGroup) inflater.inflate(R.layout.fragment_loader_layout, container, false);
 		return rootView;
 	}

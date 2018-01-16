@@ -1,16 +1,14 @@
 package istat.android.widget.fragment.input;
 
-import istat.android.widget.datas.BasicNameValuePair;
-import istat.android.widget.datas.NameValueList;
-import istat.android.widget.R;
-
 import android.text.InputType;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.Checkable;
 import android.widget.TextView;
-import android.widget.TextView;
+
+import istat.android.widget.R;
+import istat.android.widget.datas.BasicNameValuePair;
+import istat.android.widget.datas.NameValueList;
 
 public class CheckableTextViewInflater extends BasicInflater {
     private int inputType = InputType.TYPE_CLASS_TEXT;
@@ -32,7 +30,7 @@ public class CheckableTextViewInflater extends BasicInflater {
     protected void onGetData(NameValueList data, View name,
                              View value) {
         String tmp = ((TextView) value).getText().toString();
-        data.add(new BasicNameValuePair("" + (((CheckBox) name).isChecked()),
+        data.add(new BasicNameValuePair("" + (((Checkable) name).isChecked()),
                 tmp));
     }
 

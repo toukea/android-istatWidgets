@@ -35,7 +35,7 @@ public class ImageDisplayer extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
+
         base = inflater.inflate(LAYOUT, container);
         baseComposite = container;
         initComponents(base);
@@ -131,14 +131,14 @@ public class ImageDisplayer extends Fragment {
 
         @Override
         public void onPreExecute() {
-            // TODO Auto-generated method stub
+
             imageView.setImageBitmap(onLoadImage);
         }
 
         @Override
         protected Object doInBackground(Object[] params) {
 
-            // TODO Auto-generated method stub
+
             // image=ImageBitmap.getBitmapFromURL(url);
             if (ToolKits.WordFormat.isNumber(url))
                 image = getBitmapFromResource(getActivity(),

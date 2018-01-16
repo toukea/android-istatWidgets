@@ -23,24 +23,24 @@ int Number=0;
 		addListener();
 		ctx=context;
 		init();
-		// TODO Auto-generated constructor stub
+		
 	}
 	public TouchMe(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		addListener();
 		ctx=context;
 		init();
-		// TODO Auto-generated constructor stub
+		
 	}
 /*	@Override
 		public void setBackgroundResource(int resid) {
-			// TODO Auto-generated method stub
+
 			DrawUtil.drawimag(new Canvas(),DrawUtil.imag(resid, ctx),0+ImagMarg, 0+ImagMarg,TouchMe.this.getWidth()-ImagMarg, TouchMe.this.getHeight()-ImagMarg, new Paint());
 			
 		}*/
 	@Override
 	protected void onDraw(Canvas canvas) {
-		// TODO Auto-generated method stub
+
 		//TouchMe.this.setBackgroundDrawable(ctx.getResources().getDrawable(TODraw));
 		//if(haveNumber)DrawUtil.drawimag(canvas, DrawUtil.imag(Number, ctx),TouchMe.this.getWidth()/2-10, TouchMe.this.getHeight()/2-10,20, 20, new Paint());
 		if(haveNumber)WidgetUtil.drawimag(canvas, WidgetUtil.imag(Number, ctx),TouchMe.this.getWidth()-24, 4,20, 20, new Paint());
