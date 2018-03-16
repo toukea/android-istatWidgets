@@ -2,6 +2,8 @@ package istat.android.widget.fragment.tools;
 
 import istat.android.base.utils.ImageLoader;
 import istat.android.widget.R;
+
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class Loader extends Fragment {
+public class Loader extends Fragment implements ImageLoader.LoadCallback {
 View rootView;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,7 +32,7 @@ View rootView;
 		getLoadImageView().setImageResource(image);
 	}
 	public void displayLoadImage(String imageURL){
-		new ImageLoader(getActivity()).displayImage(imageURL, getLoadImageView());
+		new ImageLoader(getActivity()).displayImage(imageURL, getLoadImageView(), this);
 		getLoadImageView().setVisibility(View.VISIBLE);
 	}
 	public void  setLoadImageVisible(boolean visible){
@@ -54,5 +56,25 @@ View rootView;
 	}
 	public  View findViewById(int id){
 		return rootView.findViewById(id);	
+	}
+
+	@Override
+	public boolean onLoad(ImageLoader.PhotoToLoad phLoad) {
+		return false;
+	}
+
+	@Override
+	public void onLoadCompleted(ImageLoader.PhotoToLoad phLoad, boolean success) {
+
+	}
+
+	@Override
+	public boolean onLoadSucceed(ImageLoader.PhotoToLoad phLoad, Bitmap bitmap) {
+		return false;
+	}
+
+	@Override
+	public boolean onLoadError(ImageLoader.PhotoToLoad phLoad, Throwable error) {
+		return false;
 	}
 }

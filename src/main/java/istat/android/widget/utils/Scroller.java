@@ -17,6 +17,7 @@ public class Scroller implements Runnable {
 
     private Scroller(Scroller turner) {
         this.scrollView = turner.scrollView;
+        this.handler = turner.handler;
         turnDirection = turner.turnDirection;
         configuration = turner.configuration;
         scrollView = turner.scrollView;
@@ -38,7 +39,6 @@ public class Scroller implements Runnable {
     }
 
     public void scroll(int direction) {
-
         if (direction > 0) {
             turnDirection = 1;
         } else {
@@ -50,7 +50,12 @@ public class Scroller implements Runnable {
             handler.removeCallbacks(null);
         }
         handler.post(new Scroller(this).setScrollCallback(mScrollCallback));
-
+//        handler.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                Scroller.this.run();
+//            }
+//        });
     }
 
     public void stopScrolling() {

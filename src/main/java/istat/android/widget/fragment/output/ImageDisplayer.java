@@ -18,6 +18,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import java.io.IOException;
+
 public class ImageDisplayer extends Fragment {
     protected View base;
     protected ViewGroup baseComposite;
@@ -138,13 +140,17 @@ public class ImageDisplayer extends Fragment {
         @Override
         protected Object doInBackground(Object[] params) {
 
-
+            //TODO j'ai modifier des truc ici pour la compatibilité avec le nouveau istat-tools.
             // image=ImageBitmap.getBitmapFromURL(url);
             if (ToolKits.WordFormat.isNumber(url))
                 image = getBitmapFromResource(getActivity(),
                         Integer.valueOf(url));
             else
-                image = ImageLoader.getBitmap(url, getActivity(), imageQuality);
+                try {
+                    image = ImageLoader.getBitmap(url, getActivity(), imageQuality);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
             return null;
         }
